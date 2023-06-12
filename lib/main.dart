@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
               ScreenSize.getSize(MediaQuery.of(context).size);
               InitialZeker.init();
               SharedPref.initSharedPref();
-              return Splash();
+              return const Splash();
             },
           ),
           routes: {
