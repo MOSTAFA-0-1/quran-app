@@ -74,7 +74,6 @@ class MyApp extends StatelessWidget {
               SurahCubit.get(context).getSurah(context);
               PrayCubit.get(context).getPrays();
               ScreenSize.getSize(MediaQuery.of(context).size);
-              InitialZeker.init();
               SharedPref.initSharedPref();
               return const Splash();
             },

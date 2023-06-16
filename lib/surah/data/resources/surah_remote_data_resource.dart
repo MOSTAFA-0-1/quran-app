@@ -3,7 +3,6 @@ import 'package:quran/core/constant.dart';
 import 'package:quran/core/errors/error_masage_model.dart';
 import 'package:quran/core/exceptions/server_exception.dart';
 import 'package:quran/surah/data/model/surah_model.dart';
-import 'package:al_quran/al_quran.dart';
 
 abstract class BasedSurahRemoteDataSource {
   Future<List<SurahModel>> getSurahs();

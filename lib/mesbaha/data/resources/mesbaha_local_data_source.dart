@@ -4,6 +4,7 @@ import 'package:quran/core/errors/error_masage_model.dart';
 import 'package:quran/core/exceptions/server_exception.dart';
 import 'package:quran/surah/presentation/controller/Aya%20Of%20The%20Day/aya_of_day_cubit.dart';
 import '../../../core/errors/failure.dart';
+import '../../../core/initial/init_azkar.dart';
 import '../../domin/inteties/zeker.dart';
 
 abstract class BasedMesbahaLocalDataSource {
@@ -17,15 +18,15 @@ class MesbahaLocalDataSource extends BasedMesbahaLocalDataSource {
   @override
   Either<Failure, List<Zeker>> getAzkar() {
     azkar = [];
+    InitialZeker.init();
     for (int i = 1; i < 5; i++) {
       if (AyaOfDayCubit.pref!.getString("${constant.zeker}$i") != null) {
-
-        azkar.add(Zeker(
-            id: constant.zekerCounter(i),
-            zekerText: AyaOfDayCubit.pref!.getString("${constant.zeker}$i")!,
-            counter: AyaOfDayCubit.pref!.getInt(constant.zekerCounter(i))!),
-            );
-            
+        azkar.add(
+          Zeker(
+              id: constant.zekerCounter(i),
+              zekerText: AyaOfDayCubit.pref!.getString("${constant.zeker}$i")!,
+              counter: AyaOfDayCubit.pref!.getInt(constant.zekerCounter(i))!),
+        );
       }
     }
     if (azkar.isEmpty) {

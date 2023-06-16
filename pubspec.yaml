@@ -23,23 +23,19 @@ dependencies:
   dio: ^4.0.6
   dartz:
   get_it: ^7.2.0
-  bloc:
   flutter_bloc: ^8.1.2
-  google_fonts_arabic: ^1.1.7
   persian_fonts: ^1.0.5
   audioplayers: ^3.0.1
   hex: ^0.2.0
   glass: ^1.0.1+1
   glassmorphism: ^3.0.0
   page_transition: ^2.0.9
-  just_audio: ^0.9.31
   shared_preferences: ^2.0.20
   flutter_staggered_animations: ^1.1.1
   dotted_border: ^2.0.0+3
   geolocator: 
   geocoding: ^2.1.0
   permission_handler: ^10.2.0
-  al_quran: ^0.1.1+5
   flutter_qiblah: ^2.1.0
   share_plus: ^4.5.3
 

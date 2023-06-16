@@ -12,8 +12,7 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  @override
-  void initState() async {
+  void checkPermission() async {
     final locationPermmession = await Permission.location.isDenied;
 
     if (locationPermmession) {
@@ -37,7 +36,11 @@ class _SplashState extends State<Splash> {
         },
       );
     }
+  }
 
+  @override
+  void initState()  {
+    checkPermission();
     super.initState();
   }
 
