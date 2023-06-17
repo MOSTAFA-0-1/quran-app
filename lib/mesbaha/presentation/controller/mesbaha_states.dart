@@ -1,25 +1,9 @@
-import 'package:equatable/equatable.dart';
-import 'package:quran/mesbaha/domin/inteties/zeker.dart';
 
-// ignore: must_be_immutable
-class MesbahaStates extends Equatable {
-  List<Zeker> azkar;
-  String errorMassage;
-  MState mState;
-  MesbahaStates({this.azkar = const [], this.errorMassage = "",this.mState = MState.initial});
+abstract class MesbahaStates{}
 
-  MesbahaStates copyWith({List<Zeker>? azkar, String? errorMassage,MState? mState}) {
-    return MesbahaStates(
-        azkar: azkar ?? this.azkar,
-        errorMassage: errorMassage ?? this.errorMassage,
-        mState: mState ?? this.mState);
-  }
+class MesbahaInitialState extends MesbahaStates{}
 
-  @override
-  List<Object?> get props => [azkar,errorMassage,mState];
-}
+class MesbahaUpdateState extends MesbahaStates{}
 
-enum MState{
-  initial,
-  updated,
-}
+class MesbahaErrorState extends MesbahaStates{}
+

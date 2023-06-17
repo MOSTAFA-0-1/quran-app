@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/core/screen_size/screen_size.dart';
 import 'package:quran/mesbaha/presentation/controller/mesbaha_cubit.dart';
 import 'package:quran/mesbaha/presentation/controller/mesbaha_states.dart';
-
 import '../wedgits/zeker_ui.dart';
 
 class Azkar extends StatelessWidget {
@@ -11,6 +10,8 @@ class Azkar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mesbahaCubit = MesbahaCubit.get(context);
+    mesbahaCubit.getAzkar();
     return Scaffold(
         body: Padding(
           padding: EdgeInsets.symmetric(
@@ -23,20 +24,19 @@ class Azkar extends StatelessWidget {
                 ),
                 BlocBuilder<MesbahaCubit, MesbahaStates>(
                   builder: (context, state) {
-                    MesbahaCubit.get(context).getAzkar();
-                    if (state.azkar.isNotEmpty) {
+                    if (mesbahaCubit.azkar.isNotEmpty) {
                       return SizedBox(
                         height: ScreenSize.height * .8,
                         child: ListView.builder(
-                          itemCount: state.azkar.length,
+                          itemCount: mesbahaCubit.azkar.length,
                           itemBuilder: (context, index) {
-                            return ZekerUi(zeker: state.azkar[index]);
+                            return ZekerUi(zeker: mesbahaCubit.azkar[index]);
                           },
                         ),
                       );
                     } else {
-                      return Center(
-                        child: Text(state.errorMassage),
+                      return const Center(
+                        child: Text("Not found"),
                       );
                     }
                   },
@@ -47,7 +47,7 @@ class Azkar extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            MesbahaCubit.get(context).zeroCounter();
+            mesbahaCubit.zeroCounter();
           },
           child: const Text("0"),
         ));
