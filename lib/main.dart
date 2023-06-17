@@ -15,7 +15,6 @@ import 'package:quran/surah/presentation/controller/surah_details_controller/aya
 import 'package:quran/surah/presentation/controller/surah_details_controller/surah_details_cubit.dart';
 import 'package:quran/surah/presentation/screens/surah_details.dart';
 import 'package:quran/surah/presentation/screens/surahs_ui.dart';
-import 'core/initial/init_azkar.dart';
 import 'core/service.dart';
 import 'mesbaha/presentation/controller/mesbaha_cubit.dart';
 import 'surah/presentation/controller/surah_controller/surah_cubit.dart';
@@ -75,7 +74,7 @@ class MyApp extends StatelessWidget {
               PrayCubit.get(context).getPrays();
               ScreenSize.getSize(MediaQuery.of(context).size);
               SharedPref.initSharedPref();
-              return const Splash();
+              return  Splash();
             },
           ),
           routes: {

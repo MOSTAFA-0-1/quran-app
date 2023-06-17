@@ -29,36 +29,37 @@ class Home extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: ScreenSize.width * .05, vertical: 50),
-          child:  Directionality(
-              textDirection: TextDirection.rtl,
-              child: AnimationLimiter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: AnimationConfiguration.toStaggeredList(
-                    duration: const Duration(milliseconds: 1500),
-                    childAnimationBuilder: (widget) => SlideAnimation(
-                      verticalOffset: -65.0,
-                      child: FadeInAnimation(
-                        child: widget,
-                      ),
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: AnimationLimiter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: AnimationConfiguration.toStaggeredList(
+                  duration: const Duration(milliseconds: 1500),
+                  childAnimationBuilder: (widget) => SlideAnimation(
+                    verticalOffset: -65.0,
+                    child: FadeInAnimation(
+                      child: widget,
                     ),
-                    children: [
-                      const Stacked(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "مواقيت الصلاة",
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                      SizedBox(
-                        height: 150,
-                        child: BlocBuilder<PrayCubit, PrayStates>(
-                          builder: (context, state) {
-                            if (state.prays.isEmpty) {
-                              return const Center(child: CircleAvatar());
-                            }
-                            return ListView.builder(
+                  ),
+                  children: [
+                    const Stacked(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "مواقيت الصلاة",
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    BlocBuilder<PrayCubit, PrayStates>(
+                      builder: (context, state) {
+                        if (state.prays.isEmpty) {
+                          PrayCubit.get(context).getPrays();
+                          return const Center(child: CircleAvatar());
+                        }
+                        return SizedBox(
+                            height: 150,
+                            child: ListView.builder(
                               itemCount: praysData.length,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context, index) {
@@ -71,23 +72,21 @@ class Home extends StatelessWidget {
                                   ),
                                 );
                               },
-                            );
-                          },
-                        ),
-                      ),
-                      const AyaOfDay(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Explore()
-                    ],
-                  ),
+                            ));
+                      },
+                    ),
+                    const AyaOfDay(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Explore()
+                  ],
                 ),
               ),
             ),
           ),
         ),
-      
+      ),
     );
   }
 }

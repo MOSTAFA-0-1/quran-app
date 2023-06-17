@@ -22,7 +22,7 @@ class PrayCubit extends Cubit<PrayStates> {
   LocationPermission? locationPermission;
   bool isGranted = false;
   void getPrays() async {
-    status = await Permission.location.request();
+    status = await Permission.location.status;
 
     if (status.isDenied) {
       await openAppSettings();

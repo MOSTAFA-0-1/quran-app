@@ -14,20 +14,25 @@ class MesbahaCubit extends Cubit<MesbahaStates> {
     return BlocProvider.of<MesbahaCubit>(context);
   }
 
- void getAzkar() {
+  void getAzkar() {
     final response = sl<GetAzkar>().excute();
-    response.fold((l) => emit(state.copyWith(errorMassage: l.massage)), (r) {
-      state.azkar = r;
+    response.fold((l) => emit(state.copyWith(errorMassage: l.massage)), 
+    (r) {
+      print(r);
+      print("state list ${state.azkar}");
       emit(state.copyWith(azkar: r));
     });
   }
- late Zeker zeker ;
- void zeroCounter(){
-    for( zeker in state.azkar){
+
+  
+  
+  late Zeker zeker;
+  void zeroCounter() {
+    for (zeker in state.azkar) {
       SharedPref.pref!.setInt(zeker.id, 0);
       zeker.counter = 0;
     }
-    emit(state.copyWith(mState: MState.updated,errorMassage: "no error"));
+    emit(state.copyWith(mState: MState.updated, errorMassage: "no error"));
     state.mState = MState.initial;
     state.errorMassage = "";
   }
