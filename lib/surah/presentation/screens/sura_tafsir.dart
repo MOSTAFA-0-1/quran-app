@@ -43,7 +43,7 @@ class SuraTafsir extends StatelessWidget {
               ],
             );
           } else {
-            return const Center(child: CircleAvatar());
+            return const Center(child: CircularProgressIndicator());
           }
         },
       ),

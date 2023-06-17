@@ -89,7 +89,7 @@ class PrayTimes extends StatelessWidget {
               child: BlocBuilder<PrayCubit, PrayStates>(
                 builder: (context, state) {
                   if (state.prays.isEmpty) {
-                    return const Center(child: CircleAvatar());
+                    return const Center(child: CircularProgressIndicator());
                   }
                   return ListView.builder(
                     itemCount: arPrays.length,

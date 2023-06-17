@@ -55,7 +55,8 @@ class Home extends StatelessWidget {
                       builder: (context, state) {
                         if (state.prays.isEmpty) {
                           PrayCubit.get(context).getPrays();
-                          return const Center(child: CircleAvatar());
+                          
+                          return const Center(child: CircularProgressIndicator());
                         }
                         return SizedBox(
                             height: 150,

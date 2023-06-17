@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
               PrayCubit.get(context).getPrays();
               ScreenSize.getSize(MediaQuery.of(context).size);
               SharedPref.initSharedPref();
-              return  Splash();
+              return const Splash();
             },
           ),
           routes: {
