@@ -15,8 +15,9 @@ class ZekerUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        zeker.counter++;
+       zeker.counter++;
         SharedPref.pref!.setInt(zeker.id, zeker.counter);
+        // print( SharedPref.pref!.getInt(zeker.id));
         RebuildCubit.get(context).rebuild();
       },
       child: Container(

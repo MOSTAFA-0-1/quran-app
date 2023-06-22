@@ -24,15 +24,6 @@ class AyaOfDayCubit extends Cubit<AyaOfDayStates> {
   }
 
   String getSurah(BuildContext context) {
-    if (pref!.getInt("day") == null) {
-      pref!.setInt("day", DateTime.now().day);
-    } else {
-      if (pref!.getInt("day") != DateTime.now().day) {
-        pref!.setInt("day", DateTime.now().day);
-        increase(context);
-      }
-    }
-
     return SurahCubit.get(context).state.surahs.isNotEmpty
         ? SurahCubit.get(context).state.surahs[getSurahscounter()].name
         : "";

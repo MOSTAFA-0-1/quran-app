@@ -18,6 +18,8 @@ class MesbahaCubit extends Cubit<MesbahaStates> {
     final response = sl<GetAzkar>().excute();
     response.fold((l) => emit(MesbahaErrorState()), (r) {
       azkar = r;
+      print(r);
+      print(azkar);
       emit(MesbahaUpdateState());
     });
   }
