@@ -20,6 +20,7 @@ https://github.com/MOSTAFA-0-1/quran-app/assets/96666077/18710ac9-51f5-4a5b-96b7
 ## Technologies Used
 
 - Flutter: A mobile app development framework developed by Google that allows for the creation of high-performance, visually appealing, and cross-platform applications.
+- MVVM: stands for Model-View-ViewModel, which is a software architecture pattern used in building user interfaces.
 - Cubit: A state management solution that simplifies the process of managing the state in Flutter apps.
 - Shared Preferences: A key-value storage system that allows developers to store user data on the device securely.
 - APIs: connect the app to web-based services and retrieve or send data.
