@@ -15,13 +15,10 @@ class MesbahaCubit extends Cubit<MesbahaStates> {
   }
 
   void getAzkar() {
-    final response = sl<GetAzkar>().excute();
-    response.fold((l) => emit(MesbahaErrorState()), (r) {
-      azkar = r;
-      print(r);
-      print(azkar);
-      emit(MesbahaUpdateState());
-    });
+    azkar.clear();
+    azkar = sl<GetAzkar>().excute();
+    print("$azkar");
+
   }
 
   late Zeker zeker;

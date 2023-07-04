@@ -8,7 +8,7 @@ import '../../../core/initial/init_azkar.dart';
 import '../../domin/inteties/zeker.dart';
 
 abstract class BasedMesbahaLocalDataSource {
-  Either<Failure, List<Zeker>> getAzkar();
+  List<Zeker> getAzkar();
   void setzeker(String text, int index);
 }
 
@@ -16,9 +16,8 @@ class MesbahaLocalDataSource extends BasedMesbahaLocalDataSource {
   List<Zeker> azkar = [];
 
   @override
-  Either<Failure, List<Zeker>> getAzkar() {
-    azkar = [];
-    InitialZeker.init();
+  List<Zeker> getAzkar() {
+    azkar.clear();
     for (int i = 1; i < 5; i++) {
       if (AyaOfDayCubit.pref!.getString("${constant.zeker}$i") != null) {
         azkar.add(
@@ -29,13 +28,8 @@ class MesbahaLocalDataSource extends BasedMesbahaLocalDataSource {
         );
       }
     }
-    if (azkar.isEmpty) {
-      throw DatabaseException(
-          errorMassageModel: ErrorMassageModel.fromJson(
-              {"massage": "not found", "status": "error", "code": 0}));
-    } else {
-      return Right(azkar);
-    }
+
+    return azkar;
   }
 
   @override

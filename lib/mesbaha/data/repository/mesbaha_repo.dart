@@ -10,7 +10,7 @@ class MesbahaRepository extends BasedMesbahaRepository {
   MesbahaRepository({required this.mesbahaLocalDataSource});
 
   @override
-  Either<Failure, List<Zeker>> getAzkar() {
+  List<Zeker> getAzkar() {
    return mesbahaLocalDataSource.getAzkar();
   }
 

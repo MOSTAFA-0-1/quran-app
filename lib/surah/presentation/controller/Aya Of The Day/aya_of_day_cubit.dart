@@ -30,6 +30,7 @@ class AyaOfDayCubit extends Cubit<AyaOfDayStates> {
   }
 
   String getAya(BuildContext context) {
+    
     return SurahCubit.get(context).state.surahs.isNotEmpty
         ? SurahCubit.get(context)
             .state
