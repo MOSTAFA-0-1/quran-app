@@ -1,16 +1,35 @@
-# quran
+Quran APP 
 
-A new Flutter project.
+https://github.com/MOSTAFA-0-1/quran-app/assets/96666077/18710ac9-51f5-4a5b-96b7-52f7d8fba58b
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- full quran audio and text.
+- full quran tafsir.
+- multiple readers.
+- Qibla direction.
+- sharing ayat text to other apps.
+- misbaha.
+- pray times.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+## Technologies Used
+
+- Flutter: A mobile app development framework developed by Google that allows for the creation of high-performance, visually appealing, and cross-platform applications.
+- Cubit: A state management solution that simplifies the process of managing the state in Flutter apps.
+- Shared Preferences: A key-value storage system that allows developers to store user data on the device securely.
+- APIs: connect the app to web-based services and retrieve or send data.
+- Animations: the app has various animations to enhance the user experience and make the app more interactive.
+
+
+
+## Installation
+
+- Clone the repository to your local machine.
+- Open the project in your preferred IDE (e.g., Android Studio, Visual Studio Code).
+- Run flutter pub get to install all required dependencies.
+- Run the app using flutter run.
